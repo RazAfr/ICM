@@ -14,14 +14,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * This class constructs the UI for a chat client. It implements the chat
- * interface in order to activate the display() method. Warning: Some of the
- * code here is cloned in ServerConsole
- *
- * @author Fran&ccedil;ois B&eacute;langer
- * @author Dr Timothy C. Lethbridge
- * @author Dr Robert Lagani&egrave;re
- * @version July 2000
+ * This class constructs the UI for a JavaFX client.
+ * 
+ * @author Team16 Braude
+ * @version Nov2019
  */
 public class ClientUI extends Application {
 //Class variables *************************************************
@@ -36,7 +32,11 @@ public class ClientUI extends Application {
 	/**
 	 * The instance of the client that created this ConsoleChat.
 	 */
-	Client client;
+	private static Client client;
+	
+	public static Client getClient() {
+		return client;
+	}
 
 //Constructors ****************************************************
 
@@ -61,36 +61,6 @@ public class ClientUI extends Application {
 		}
 	}
 
-//Instance methods ************************************************
-
-	/**
-	 * This method waits for input from the console. Once it is received, it sends
-	 * it to the client's message handler.
-	 */
-	public void accept() {
-		try {
-			BufferedReader fromConsole = new BufferedReader(new InputStreamReader(System.in));
-			String message;
-
-			while (true) {
-				message = fromConsole.readLine();
-				client.handleMessageFromClientUI(message);
-			}
-		} catch (Exception ex) {
-			System.out.println("Unexpected error while reading from console!");
-		}
-	}
-
-	/**
-	 * This method overrides the method in the ChatIF interface. It displays a
-	 * message onto the screen.
-	 *
-	 * @param message The string to be displayed.
-	 */
-	public void display(String message) {
-		System.out.println("> " + message);
-	}
-
 //Class methods ***************************************************
 
 	@Override
@@ -101,6 +71,7 @@ public class ClientUI extends Application {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("RequestTracking.fxml"));
+			//loader.setLocation(getClass().getResource("LoginPage.fxml"));
 			vbox = loader.load();
 
 		} catch (IOException e) {
@@ -129,11 +100,8 @@ public class ClientUI extends Application {
 			host = "192.168.1.19";
 		}
 		ClientUI gui = new ClientUI(host, DEFAULT_PORT);
-		// chat.accept(); // Wait for console data
 
 		launch(args);
 	}
 
 }
-
-//End of ConsoleChat class

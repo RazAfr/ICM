@@ -8,15 +8,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="882.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.RequestTrackingController">
    <children>
       <ImageView fitHeight="514.0" fitWidth="890.0" layoutX="-5.0" layoutY="-1.0">
          <image>
-            <Image url="@../../../GUI/Images/background.jpg" />
+            <Image url="@Images/background.jpg" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="requestID" focusColor="#869cd7" layoutX="214.0" layoutY="288.0" prefHeight="48.0" prefWidth="454.0" promptText="Request ID" style="-fx-background-color: white; -fx-border-radius: 40;">
+      <JFXTextField fx:id="requestID" focusColor="#1c5af8" layoutX="214.0" layoutY="288.0" prefHeight="48.0" prefWidth="454.0" promptText="Request ID" style="-fx-background-color: white;" unFocusColor="#0d0d0d">
          <font>
             <Font name="Tahoma" size="15.0" />
          </font>
@@ -26,16 +27,17 @@
             <Bloom />
          </effect>
       </JFXButton>
-      <JFXTextArea layoutX="269.0" layoutY="14.0" prefHeight="128.0" prefWidth="345.0" text="View Request" unFocusColor="#eeeded">
-         <font>
-            <Font name="Tahoma Bold" size="48.0" />
-         </font>
-      </JFXTextArea>
       <AnchorPane layoutX="305.0" layoutY="98.0" prefHeight="9.0" prefWidth="267.0" style="-fx-background-color: #2f3332;" />
       <ImageView fitHeight="37.0" fitWidth="42.0" layoutX="155.0" layoutY="294.0">
          <image>
             <Image url="@../../../../AppData/Local/Temp/icons8_search_50px_2.png" />
          </image>
       </ImageView>
+      <Text layoutX="286.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Request">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Text>
+      <JFXTextArea fx:id="empty" disable="true" focusColor="RED" layoutX="214.0" layoutY="336.0" prefHeight="37.0" prefWidth="414.0" unFocusColor="#eeeeee" />
    </children>
 </AnchorPane>
