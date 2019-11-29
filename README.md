@@ -14,5 +14,6 @@ TODO:
 - Specific interfaces as specified in UI/UX's Assignment 1 List.
 - Link project to mySQL, possibly extend mySQL existing class with essential methods and aid methods.
 - Research the feasibility of setting mysql db on some webserver / aws cloud (go) so it would be independent of pc.
+  NOTE TO SELF: TRY OUT remotemysql dot com
 
 ### PLEASE! DO CONTACT ME OR DIMA AHEAD FOR WHATEVER CHANGE YOU MAKE IN THE PROJECT OR GUI.
