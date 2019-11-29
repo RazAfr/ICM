@@ -11,6 +11,7 @@ NEW:
 
 TODO:
 - Interfaces for each role (about 5-6), linked via class controlled to fxml
+- Specific interfaces as specified in UI/UX's Assignment 1 List.
 - Link project to mySQL, possibly extend mySQL existing class with essential methods and aid methods
 - Research the feasibility of exporting mysql db locally to project server directory so it would be portable
 
