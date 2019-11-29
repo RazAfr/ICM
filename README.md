@@ -1,7 +1,7 @@
 # ICM
 B.Sc. Software Engineering 3rd year project - ONGOING.
 
-RazMalka v2 commit 29/11/19, see details
+@RazMalka v2 commit 29/11/19, see details
 
 NEW:
 
