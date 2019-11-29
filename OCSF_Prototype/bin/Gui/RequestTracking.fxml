@@ -39,5 +39,10 @@
          </font>
       </Text>
       <JFXTextArea fx:id="empty" disable="true" focusColor="RED" layoutX="214.0" layoutY="336.0" prefHeight="37.0" prefWidth="414.0" unFocusColor="#eeeeee" />
+      <Text fill="RED" layoutX="214.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

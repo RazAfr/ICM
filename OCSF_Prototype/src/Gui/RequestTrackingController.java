@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class RequestTrackingController {
@@ -24,6 +25,8 @@ public class RequestTrackingController {
 
 	@FXML
 	private JFXTextField requestID;
+	
+	private Text alertMessage;
 	
 	String requestIDText;
 
@@ -39,14 +42,15 @@ public class RequestTrackingController {
 
 		requestIDText = requestID.getText();
 		if(requestIDText.equals(""))
-		{
-			requestID.setPromptText("empty id not allowed");
-		}
+			alertMessage.setText("Empty ID is NOT allowed!");
+		
 		ArrayList<Object> arrlist = new ArrayList<>();
 		arrlist.add(requestID.getText());
+		
 		MessageObject viewRequest = new MessageObject(TypeRequest.View_Req_Details, arrlist);
 		try {
 			ClientUI.getClient().sendToServer(viewRequest);
+			alertMessage.setText("Search request sent successfully!");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
