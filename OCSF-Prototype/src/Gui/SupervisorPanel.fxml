@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.PanelController">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" layoutX="-5.0" layoutY="-1.0">
+         <image>
+            <Image url="@Images/background.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="viewRequestDetails" buttonType="RAISED" depthTest="ENABLE" layoutX="560.0" layoutY="161.0" onAction="#viewRequestDetailsWasPressed" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: gray;" text="View Request Details">
+         <effect>
+            <Bloom />
+         </effect>
+      </JFXButton>
+      <AnchorPane layoutX="507.0" layoutY="97.0" prefHeight="9.0" prefWidth="267.0" style="-fx-background-color: #2f3332;" />
+      <Text layoutX="526.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ICM Panel">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Text>
+      <Text fx:id="firstName" layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome, Name">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+      <JFXButton buttonType="RAISED" depthTest="ENABLE" layoutX="560.0" layoutY="310.0" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: gray;" text="New Change Request">
+         <effect>
+            <Bloom />
+         </effect>
+      </JFXButton>
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="619.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/new_change_request.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="619.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/view_change_request.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" depthTest="ENABLE" layoutX="1015.0" layoutY="161.0" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: gray;" text="Approve/Disapprove&#10;&#9; Extension">
+         <effect>
+            <Bloom />
+         </effect>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" depthTest="ENABLE" layoutX="1015.0" layoutY="310.0" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: gray;" text="Approve/Disapprove&#10;     Time Duration">
+         <effect>
+            <Bloom />
+         </effect>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" depthTest="ENABLE" layoutX="124.0" layoutY="161.0" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: gray;" text="Freeze/Unfreze Request">
+         <effect>
+            <Bloom />
+         </effect>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" depthTest="ENABLE" layoutX="124.0" layoutY="310.0" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: gray;" text="&#9;     Approve&#10;Evaluator's Appointment">
+         <effect>
+            <Bloom />
+         </effect>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" depthTest="ENABLE" layoutX="560.0" layoutY="458.0" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: gray;" text="View All Requests">
+         <effect>
+            <Bloom />
+         </effect>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" depthTest="ENABLE" layoutX="1015.0" layoutY="458.0" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: gray;" text="Close a Request">
+         <effect>
+            <Bloom />
+         </effect>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" depthTest="ENABLE" layoutX="124.0" layoutY="458.0" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: gray;" text="    Appoint/Replace&#10;Executioner/Evaluator">
+         <effect>
+            <Bloom />
+         </effect>
+      </JFXButton>
+   </children>
+</AnchorPane>

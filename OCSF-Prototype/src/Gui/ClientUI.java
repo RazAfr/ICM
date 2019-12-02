@@ -5,6 +5,7 @@ package Gui;
 //license found at www.lloseng.com 
 
 import java.io.*;
+import java.util.ArrayList;
 
 import client.*;
 import javafx.application.Application;
@@ -12,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import jdbc.mysqlConnection;
 
 /**
  * This class constructs the UI for a JavaFX client.
@@ -86,16 +88,23 @@ public class ClientUI extends Application {
         stage.show();
 	}
 	
+	public static Boolean isMessageMine(MessageObject msg) {
+		return client.getInetAddress().toString().equals("/" + msg.getArgs().get(0).toString());
+	}
+	
+	public void handleMessageFromServer(Object msg) {
+		System.out.println("Reached me! Inside ClientUI.");
+	}
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-
 		Parent vbox;
 
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			// loader.setLocation(getClass().getResource("RequestTracking.fxml"));
-			// loader.setLocation(getClass().getResource("LoginPage.fxml"));
-			loader.setLocation(getClass().getResource("AcademicUserPanel.fxml"));
+			 loader.setLocation(getClass().getResource("LoginPage.fxml"));
+			// loader.setLocation(getClass().getResource("AcademicUserPanel.fxml"));
 			vbox = loader.load();
 
 		} catch (IOException e) {

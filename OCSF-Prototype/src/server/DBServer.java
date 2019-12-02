@@ -4,8 +4,12 @@ package server;
 // license found at www.lloseng.com 
 
 import java.io.*;
+import java.sql.Connection;
+import java.util.ArrayList;
 
 import client.MessageObject;
+import client.TypeRequest;
+import jdbc.mysqlConnection;
 import ocsf.server.*;
 
 /**
@@ -51,14 +55,26 @@ public class DBServer extends AbstractServer
   public void handleMessageFromClient
     (Object msg, ConnectionToClient client)
   {
-	  if (msg instanceof MessageObject)
-		  System.out.println("Message recieved: " + ((MessageObject)msg).getTypeRequest().toString() + " | " + ((MessageObject)msg).getArgs().toString() + " from " + client);
+	  if (msg instanceof MessageObject) {
+		  MessageObject message = (MessageObject)msg;
+		  System.out.println("Message recieved: " + (message).getTypeRequest().toString() + " | " + (message).getArgs().toString() + " from " + client);
+		  if (message.getTypeRequest() == TypeRequest.Login) {
+			  Boolean res = mysqlConnection.getUserFromDB(message.getArgs().get(0).toString(), message.getArgs().get(1).toString());
+			  ArrayList<Object> args = new ArrayList();
+			  args.add(client);
+			  args.add(res);
+			  MessageObject response = new MessageObject(TypeRequest.Login, args);
+			  System.out.println("Message sent: " + (response).getTypeRequest().toString() + " | " + (response).getArgs().toString() + " from server");
+			  this.sendToAllClients(response);
+			  return;
+		  }
+	  }
 	  else
 	    System.out.println("Message received: " + msg + " from " + client);
 	    this.sendToAllClients(msg);
+	    return;
 	  }
-
-    
+  
   /**
    * This method overrides the one in the superclass.  Called
    * when the server starts listening for connections.
@@ -67,6 +83,7 @@ public class DBServer extends AbstractServer
   {
     System.out.println
       ("Server listening for connections on port " + getPort());
+    mysqlConnection.connectToDB();
   }
   
   /**

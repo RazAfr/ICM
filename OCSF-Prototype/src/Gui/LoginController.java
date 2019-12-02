@@ -1,10 +1,13 @@
 package Gui;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import client.MessageObject;
+import client.TypeRequest;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,6 +49,35 @@ public class LoginController {
 		IDText = id.getText();
 		passwordText = password.getText();
 		// LOGIN LOGIC HERE
-		System.out.println(IDText + " : " + passwordText);
+		ArrayList<Object> args = new ArrayList<>();
+		args.add(IDText);
+		args.add(passwordText);
+		MessageObject msg = new MessageObject(TypeRequest.Login, args);
+		try {
+			ClientUI.getClient().sendToServer(msg);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void handleMessageFromServer(Object msg) {
+		System.out.println("Reached me! Inside Login Controller.");
+		  if (msg instanceof MessageObject) {
+			  MessageObject message = (MessageObject)msg;
+			  if (!ClientUI.isMessageMine(message)) {
+				  System.out.println("Message NOT yours!");
+				  return;
+			  }
+			  System.out.println("Message recieved: " + (message).getTypeRequest().toString() + " | " + (message).getArgs().toString() + " from server");
+			  if (message.getTypeRequest() == TypeRequest.Login) {
+				  if ((Boolean)message.getArgs().get(1))
+					  ClientUI.openNewWindow("AcademicUserPanel", getClass());
+				  else
+					  login.setText(login.getText() + "\nWrong ID/PW!");
+			  }
+		  }
+		  else
+			  System.out.println(msg.toString());
 	}
 }
