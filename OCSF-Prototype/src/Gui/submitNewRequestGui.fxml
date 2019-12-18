@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.NewChangeRequestController">
+   <children>
+      <JFXButton fx:id="submit" layoutX="337.0" layoutY="360.0" onAction="#submitWasPressed" text="Submit" />
+      <JFXButton fx:id="attach" layoutX="197.0" layoutY="360.0" onAction="#attachWasPressed" text="Attach" />
+      <JFXTextField fx:id="jfxinfSys" layoutX="34.0" layoutY="107.0" prefHeight="23.0" prefWidth="462.0" promptText="Information System" />
+      <JFXTextField fx:id="jfxnotes" layoutX="34.0" layoutY="276.0" prefHeight="60.0" prefWidth="462.0" promptText="Notes(Optional)" />
+      <JFXTextField fx:id="jfxwantedChange" layoutX="34.0" layoutY="191.0" prefHeight="78.0" prefWidth="462.0" promptText="Requested Change" />
+      <JFXTextField fx:id="jfxsituation" layoutX="34.0" layoutY="131.0" prefHeight="60.0" prefWidth="462.0" promptText="Situation Description" />
+      <JFXTextField fx:id="jfxposition" layoutX="385.0" layoutY="60.0" prefHeight="23.0" prefWidth="110.0" promptText="Job Title" />
+      <JFXTextField fx:id="jfxemail" layoutX="235.0" layoutY="60.0" prefHeight="23.0" prefWidth="130.0" promptText="E-mail" />
+      <JFXTextField fx:id="jfxname" layoutX="111.0" layoutY="60.0" prefHeight="23.0" prefWidth="110.0" promptText="Full Name" />
+      <JFXTextField fx:id="jfxdate" layoutX="34.0" layoutY="60.0" prefHeight="23.0" prefWidth="69.0" promptText="DD/MM/YY" />
+      <Text layoutX="197.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Submit new Change Request">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

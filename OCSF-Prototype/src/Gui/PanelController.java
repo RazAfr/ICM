@@ -8,8 +8,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
-import client.MessageObject;
-import client.TypeRequest;
+import Utilities.MessageObject;
+import Utilities.RequestType;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -23,24 +23,23 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class PanelController {
-
+	// Class Buttons ***************************************************
 	@FXML
 	private JFXButton viewRequestDetails;
 
-	//@FXML
-	//private JFXTextField requestID;
-	
+	@FXML
+	private JFXButton submitNewRequest;
+
+	@FXML
+	private JFXButton logOut;
+
 	@FXML
 	private Text firstName;
 
-	/**
-	 * event handler for the search button receives the text that was written into
-	 * the text field
-	 * 
-	 * @param event
-	 */
+	// Class methods ***************************************************
 
-	/** On Load
+	/**
+	 * a method that intializes text On Load
 	 * 
 	 */
 
@@ -48,15 +47,45 @@ public class PanelController {
 	public void initialize() {
 		firstName.setText("Welcome, " + getFirstNameFromSQL());
 	}
-	
-	// THIS FUNCTION WILL BE DELETED AND REPLACED WITH AN ACTUAL GET FUNCTION FROM SQL CONTROLLER STATIC CLASS
+
+	// THIS FUNCTION WILL BE DELETED AND REPLACED WITH AN ACTUAL GET FUNCTION FROM
+	// SQL CONTROLLER STATIC CLASS
 	private String getFirstNameFromSQL() {
 		return "David";
 	}
-	
+
+	/**
+	 * This event handler switches scene to SearchReaquest
+	 * 
+	 * @param event
+	 */
 	@FXML
 	public void viewRequestDetailsWasPressed(ActionEvent event) {
-		ClientUI.openNewWindow("RequestTracking", getClass());
+
+		ClientUI.switchScene("SearchRequest");
+		SearchRequestController controller = (SearchRequestController) ClientUI.getCurrentController();
+		controller.clearFields();
+
 	}
-	
+
+	/**
+	 * This event handler switches scenes back to the login page
+	 * 
+	 * @param event
+	 */
+	@FXML
+	public void logOutWasPressed(ActionEvent event) {
+		ClientUI.switchScene("LoginPage");
+		LoginController controller = (LoginController) ClientUI.getCurrentController();
+		controller.clearFields();
+	}
+	@FXML
+	public void submitNewRequestWasPressed(ActionEvent event) {
+
+		ClientUI.switchScene("submitNewRequestGui");
+		//SearchRequestController controller = (SearchRequestController) ClientUI.getCurrentController();
+		//controller.clearFields();
+
+	}
+
 }
